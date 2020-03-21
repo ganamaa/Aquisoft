@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Login.Models
+namespace Login.Datos
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Lugar
     {
         public int ID { get; set; }
-        [Required]
         public string Nombre { get; set; }
-        [Required]
         public string Ubicacion { get; set; }
-        [Required]
         public string Latitud { get; set; }
-        [Required]
         public string Longitud { get; set; }
+        public string Usuario { get; set; }
+        public string Categoria { get; set; }
+        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public Nullable<System.DateTime> FechaFin { get; set; }
+        public Nullable<int> Capacidad { get; set; }
+        public Nullable<int> Asistentes { get; set; }
     }
 }

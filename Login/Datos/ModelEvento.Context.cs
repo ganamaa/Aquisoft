@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Login.Models
+namespace Login.Datos
 {
     using System;
     using System.Data.Entity;
