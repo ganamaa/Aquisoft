@@ -1,49 +1,82 @@
-﻿@model IEnumerable<Login.Models.Lugar>
+﻿
+
+@model IEnumerable<Login.Models.Lugar>
+
 
 @{
     ViewBag.Title = "Evento";
 }
 
 <h2>TOP Evento</h2>
-
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" />
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Import Google Icon Font-->
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ubicacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitud)
-        </th>
-        <th></th>
-    </tr>
+  
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitud)
-        </td>
-        <td>
-            @*  @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                <div class="form-group">
+                    <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
+                </div>
+
+
+            </td>
+            <td>
+                @*  @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+<script>
+    $('#ModalMapPreview').locationpicker({
+        radius: 0,
+        location: {
+            latitude: $('#Latitud').val(),    //POSICION INICIAL
+            longitude: $('#Longitud').val()
+        },
+        enableAutocomplete: true,   //AUTOCOMPLETE EN EL BUSCADOR
+        inputBinding: {
+            latitudeInput: $('#Latitud'),
+            longitudeInput: $('#Longitud'),
+            locationNameInput: $('#Ubicacion')
+        },
+
+    });
+
+     $('#ModalMapPreview2').locationpicker({
+        radius: 0,
+        location: {
+            latitude: $(item.latitude).val(),    //POSICION INICIAL
+            longitude: $(item.longitude).val()
+        },
+        
+
+    });
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
