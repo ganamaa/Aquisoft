@@ -193,21 +193,21 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Lugar.cs">
+    <Compile Include="Datos\Lugar.cs">
       <DependentUpon>ModelEvento.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ModelEvento.Context.cs">
+    <Compile Include="Datos\ModelEvento.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelEvento.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelEvento.cs">
+    <Compile Include="Datos\ModelEvento.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelEvento.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelEvento.Designer.cs">
+    <Compile Include="Datos\ModelEvento.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelEvento.edmx</DependentUpon>
@@ -235,12 +235,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ModelEvento.Context.tt">
+    <Content Include="Datos\ModelEvento.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelEvento.edmx</DependentUpon>
       <LastGenOutput>ModelEvento.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelEvento.tt">
+    <Content Include="Datos\ModelEvento.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelEvento.edmx</DependentUpon>
       <LastGenOutput>ModelEvento.cs</LastGenOutput>
@@ -254,11 +254,11 @@
     <Content Include="Datos\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\ModelEvento.edmx">
+    <EntityDeploy Include="Datos\ModelEvento.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelEvento.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModelEvento.edmx.diagram">
+    <Content Include="Datos\ModelEvento.edmx.diagram">
       <DependentUpon>ModelEvento.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
