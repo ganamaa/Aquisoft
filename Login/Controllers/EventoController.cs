@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Login.Controllers
 {
@@ -32,6 +33,7 @@ namespace Login.Controllers
             {
                 using (var db = new EventoContext())
                 {
+                    
                     db.Lugar.Add(a);
                     db.SaveChanges();
                     return RedirectToAction("Evento");
