@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Login.Models.Lugar>
+﻿@model IEnumerable<Login.Datos.Lugar>
 
 @{
     ViewBag.Title = "Evento";
@@ -21,10 +21,28 @@
         <th>
             @Html.DisplayNameFor(model => model.Longitud)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asistentes)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
@@ -39,11 +57,29 @@
             @Html.DisplayFor(modelItem => item.Longitud)
         </td>
         <td>
-            @*  @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asistentes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
-}
+    }
 
 </table>
