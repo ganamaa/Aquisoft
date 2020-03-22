@@ -22,7 +22,7 @@
 
     <p>Click the button to get your coordinates.</p>
 
-    <button onclick="getLocation()">Try It</button>
+    <button onclick="getLocation()">Generar Eventos Cerca</button>
 
     <p id="demo"></p>
 
@@ -31,16 +31,15 @@
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition.position.coords.latitude;
+                navigator.geolocation.getCurrentPosition.position.coords.longitude;
+
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
         }
 
-        function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
-        }
+        
     </script>
 
 
