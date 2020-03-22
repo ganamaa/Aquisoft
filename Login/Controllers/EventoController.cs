@@ -1,15 +1,16 @@
-﻿using Login.Models;
+﻿using Login.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+
 
 namespace Login.Controllers
 {
     public class EventoController : Controller
     {
+
         // GET: Evento
         public ActionResult Evento()
         {
@@ -20,7 +21,6 @@ namespace Login.Controllers
        
         }
 
-        
         public ActionResult CrearEvento()
         {
                 return View();
