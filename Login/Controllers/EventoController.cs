@@ -46,6 +46,14 @@ namespace Login.Controllers
                 return View();
             }
         }
+        public ActionResult DetalleEvento(int Id)
+        {
+            using (EventoContext db = new EventoContext())
+            {
+               
+                return View(db.Lugar.Find(Id).ToList());
+            }
+        }
     }
 
 }

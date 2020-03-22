@@ -1,8 +1,8 @@
-﻿@model IEnumerable<Login.Datos.Lugar>
+@model IEnumerable<Login.Datos.Lugar>
 
 
 @{
-    ViewBag.Title = "Evento";
+    ViewBag.Title = "Detalle del Evento";
 }
 
 <h2>TOP Evento</h2>
@@ -16,30 +16,61 @@
 <!--Import Google Icon Font-->
 
 <table class="table">
-  
+
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ubicacion)
-            </td>
-            <td>
-                <div class="form-group">
-                    <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
-                </div>
+    <tr>
+        <td>Nombre del Evento</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>Ubicacion</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ubicacion)
+        </td>
+    </tr>
+    <tr>
+        <td>Categoria</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Inicio del Evento</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de finalizacion del Evento</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFin)
+        </td>
+    </tr>
+    <tr>
+        <td>Capacidad</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacidad)
+        </td>
+    </tr>
+    <tr>
+        <td>Asistentes</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asistentes)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="form-group">
+                <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
+            </div>
 
 
-            </td>
-            <td>
-                @*  @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Detalles", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-            </td>
-        </tr>
+        </td>
+    </tr>
     }
 
 </table>
@@ -67,7 +98,7 @@
             latitude: $(item.latitude).val(),    //POSICION INICIAL
             longitude: $(item.longitude).val()
         },
-        
+
 
     });
 </script>
