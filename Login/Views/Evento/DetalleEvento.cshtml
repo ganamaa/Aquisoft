@@ -21,43 +21,49 @@
     @foreach (var item in Model)
     {
     <tr>
-        <td>Nombre del Evento</td>
+        <td>@Html.DisplayNameFor(model => model.Nombre)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
     </tr>
     <tr>
-        <td>Ubicacion</td>
+        <td>@Html.DisplayNameFor(model => model.Ubicacion)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Ubicacion)
         </td>
     </tr>
     <tr>
-        <td>Categoria</td>
+        <td>@Html.DisplayNameFor(model => model.Usuario)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Categoria)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Categoria)
         </td>
     </tr>
     <tr>
-        <td>Fecha de Inicio del Evento</td>
+        <td>@Html.DisplayNameFor(model => model.FechaInicio)</td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaInicio)
         </td>
     </tr>
     <tr>
-        <td>Fecha de finalizacion del Evento</td>
+        <td>@Html.DisplayNameFor(model => model.FechaFin)</td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaFin)
         </td>
     </tr>
     <tr>
-        <td>Capacidad</td>
+        <td>@Html.DisplayNameFor(model => model.Capacidad)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Capacidad)
         </td>
     </tr>
     <tr>
-        <td>Asistentes</td>
+        <td>@Html.DisplayNameFor(model => model.Asistentes)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Asistentes)
         </td>

@@ -54,6 +54,45 @@ namespace Login.Controllers
                 return View(db.Lugar.Find(Id).ToList());
             }
         }
+        public ActionResult Editar(int Id)
+        {
+            using (var db = new EventoContext())
+            {
+                return View(db.Lugar.Find(Id).ToList());
+            }
+            
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Lugar a)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    db.Entry(db.Lugar.Find(a.ID)).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Evento");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Error al agregar el evento", ex);
+                return View();
+            }
+        }
+        public ActionResult Eliminar(int Id)
+        {
+            using (var db = new EventoContext())
+            {
+                db.Lugar.remove(db.Tabla.Find(Id));
+                db.SaveChanges();
+                return RedirectToAction("Evento");
+            }
+
+        }
     }
 
 }
