@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-﻿@model IEnumerable<Login.Datos.Lugar>
-=======
-﻿
 
 @model IEnumerable<Login.Datos.Lugar>
 
->>>>>>> f9eed4ccb0dd0b69b70367e50c123672b23f92d5
+
 
 @{
     ViewBag.Title = "Evento";
@@ -22,7 +18,6 @@
 <!--Import Google Icon Font-->
 
 <table class="table">
-<<<<<<< HEAD
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -58,75 +53,51 @@
     </tr>
 
     @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asistentes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ubicacion)
+    </td>
+    <td>
+        <div class="form-group">
+            <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
+        </div>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Latitud)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Longitud)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Usuario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Categoria)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaInicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaFin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Capacidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Asistentes)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
     }
 
 </table>
-=======
-  
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ubicacion)
-            </td>
-            <td>
-                <div class="form-group">
-                    <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
-                </div>
-
-
-            </td>
-            <td>
-                @*  @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-            </td>
-        </tr>
-    }
-
-</table>
-
 
 <script>
     $('#ModalMapPreview').locationpicker({
@@ -144,16 +115,17 @@
 
     });
 
-     $('#ModalMapPreview2').locationpicker({
+    $('#ModalMapPreview2').locationpicker({
         radius: 0,
         location: {
             latitude: $(item.latitude).val(),    //POSICION INICIAL
             longitude: $(item.longitude).val()
         },
-        
+
 
     });
 </script>
+
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -161,4 +133,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
->>>>>>> f9eed4ccb0dd0b69b70367e50c123672b23f92d5
+
