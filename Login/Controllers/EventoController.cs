@@ -27,6 +27,7 @@ namespace Login.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CrearEvento(Lugar a)
         {
             try
@@ -42,7 +43,7 @@ namespace Login.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("Error al agregar el evento", ex);
+                ModelState.AddModelError("","Error al agregar el evento"+ex.Message);
                 return View();
             }
         }
@@ -51,14 +52,14 @@ namespace Login.Controllers
             using (EventoContext db = new EventoContext())
             {
                
-                return View(db.Lugar.Find(Id).ToList());
+                return View(db.Lugar.Find(Id));
             }
         }
         public ActionResult Editar(int Id)
         {
             using (var db = new EventoContext())
             {
-                return View(db.Lugar.Find(Id).ToList());
+                return View(db.Lugar.Find(Id));
             }
             
         }
@@ -87,7 +88,8 @@ namespace Login.Controllers
         {
             using (var db = new EventoContext())
             {
-                db.Lugar.remove(db.Tabla.Find(Id));
+                db.Lugar.Remove(db.Lugar.Find(Id));
+               // db.Lugar.remove(db.Tabla.Find(Id));
                 db.SaveChanges();
                 return RedirectToAction("Evento");
             }
