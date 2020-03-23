@@ -34,13 +34,15 @@ namespace Login.Controllers
             {
                 using (var db = new EventoContext())
                 {
-                    List<Lugar> lista = db.Lugar.Where(a => a.Usuario == User.Identity.GetUserName()).ToList();
+                    String valor = User.Identity.GetUserName();
+                    List<Lugar> lista = db.Lugar.Where(a => a.Usuario == valor).ToList();
                     return View(lista);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View("crearEvento");
             }
         }
 

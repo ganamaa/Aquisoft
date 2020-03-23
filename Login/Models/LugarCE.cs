@@ -8,6 +8,7 @@ namespace Login.Datos
 {
     public class LugarCE
     {
+        
         [Required]
         [Display]
         public string Nombre { get; set; }
@@ -20,7 +21,7 @@ namespace Login.Datos
         public string Categoria { get; set; }
         [DataType(DataType.Date), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public System.DateTime FechaInicio { get; set; }
         [DataType(DataType.Date), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> FechaFin { get; set; }
@@ -30,6 +31,9 @@ namespace Login.Datos
         [Required]
         [Display]
         public Nullable<int> Asistentes { get; set; }
+        [Required]
+        [DataType(DataType.MultilineText)]
+        public string Descripcion { get; set; }
     }
     [MetadataType(typeof(LugarCE))]
     public partial class Lugar

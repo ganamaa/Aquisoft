@@ -6,8 +6,6 @@
 
 <h2>TusEventos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -40,6 +38,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Asistentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th></th>
     </tr>
@@ -75,6 +76,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Asistentes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

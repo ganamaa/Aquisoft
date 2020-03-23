@@ -21,9 +21,10 @@ namespace Login.Datos
         public string Longitud { get; set; }
         public string Usuario { get; set; }
         public string Categoria { get; set; }
-        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public System.DateTime FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }
         public Nullable<int> Capacidad { get; set; }
         public Nullable<int> Asistentes { get; set; }
+        public string Descripcion { get; set; }
     }
 }

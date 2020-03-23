@@ -10,16 +10,17 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
           <Property Name="Latitud" Type="varchar" MaxLength="50" />
           <Property Name="Longitud" Type="varchar" MaxLength="50" />
-          <Property Name="Usuario" Type="varchar" MaxLength="50" />
-          <Property Name="Categoria" Type="varchar" MaxLength="50" />
-          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
           <Property Name="FechaFin" Type="datetime" />
           <Property Name="Capacidad" Type="int" />
           <Property Name="Asistentes" Type="int" />
+          <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityContainer Name="EventoModelStoreContainer">
           <EntitySet Name="Lugar" EntityType="Self.Lugar" Schema="dbo" store:Type="Tables" />
@@ -33,16 +34,17 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="FechaFin" Type="DateTime" Precision="3" />
           <Property Name="Capacidad" Type="Int32" />
           <Property Name="Asistentes" Type="Int32" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="EventoContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Lugar" EntityType="Self.Lugar" />
@@ -56,6 +58,7 @@
           <EntitySetMapping Name="Lugar">
             <EntityTypeMapping TypeName="EventoModel.Lugar">
               <MappingFragment StoreEntitySet="Lugar">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Asistentes" ColumnName="Asistentes" />
                 <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
                 <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
