@@ -18,6 +18,33 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
 
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Generar Eventos Cerca</button>
+
+<p id="lat"></p>
+<p id="long"></p>
+
+<script>
+    var lat = document.getElementById("lat");
+    var long = document.getElementById("long");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        lat.innerHTML = position.coords.latitude;
+        long.innerHTML = position.coords.longitude;
+    }
+</script>
+
+
+
 
 <script>
     $('#ModalMapPreview').locationpicker({
