@@ -10,13 +10,14 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right deep-purple">
-            <li>
-                @Html.ActionLink("Hola " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li>@Html.ActionLink("Crear evento", "CrearEvento", "Evento")</li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-        </ul>
+<ul class="nav navbar-nav navbar-right deep-purple">
+    <li>
+        @Html.ActionLink("Hola " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>@Html.ActionLink("Crear evento", "CrearEvento", "Evento")</li>
+    <li>@Html.ActionLink("Tus Eventos", "TusEventos", "Evento")</li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+</ul>
     }
 }
 else

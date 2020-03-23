@@ -4,16 +4,11 @@
     ViewBag.Title = "Evento";
 }
 
-<h2>TOP Evento</h2>
+<h2>Evento</h2>
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" />
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!--fin-->
-
-<script src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyAz9MQj-ppdXPbHdzO8KKxIkygXq3r3sOM' type="text/javascript"></script>
-<script src="~/Scripts/locationpicker.jquery.js"></script>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
@@ -63,11 +58,6 @@
                 @Html.DisplayFor(modelItem => item.Ubicacion)
             </td>
             <td>
-                <div class="form-group">
-                    <div id="ModalMapPreview2" style="width: 200%; height: 100px;"></div>
-                </div>
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Latitud)
             </td>
             <td>
@@ -92,41 +82,16 @@
                 @Html.DisplayFor(modelItem => item.Asistentes)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
                 @Html.ActionLink("Detalles", "DetalleEvento", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
             </td>
         </tr>
     }
 
 </table>
 
-<script>
-    $('#ModalMapPreview').locationpicker({
-        radius: 0,
-        location: {
-            latitude: $('#Latitud').val(),    //POSICION INICIAL
-            longitude: $('#Longitud').val()
-        },
-        enableAutocomplete: true,   //AUTOCOMPLETE EN EL BUSCADOR
-        inputBinding: {
-            latitudeInput: $('#Latitud'),
-            longitudeInput: $('#Longitud'),
-            locationNameInput: $('#Ubicacion')
-        },
 
-    });
-
-    $('#ModalMapPreview2').locationpicker({
-        radius: 0,
-        location: {
-            latitude: $(item.latitude).val(),    //POSICION INICIAL
-            longitude: $(item.longitude).val()
-        },
-
-
-    });
-</script>
 
 
 <!-- Compiled and minified JavaScript -->

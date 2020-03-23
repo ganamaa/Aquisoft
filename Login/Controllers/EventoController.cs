@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 
 namespace Login.Controllers
@@ -14,11 +15,33 @@ namespace Login.Controllers
         // GET: Evento
         public ActionResult Evento()
         {
-            using (EventoContext db = new EventoContext())
+            try
             {
+                using (var  db = new EventoContext())
+                {
+
                 return View(db.Lugar.ToList());
+                }
             }
-       
+            catch (Exception)
+            {
+                throw;
+            }     
+        }
+        public ActionResult TusEventos()
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    List<Lugar> lista = db.Lugar.Where(a => a.Usuario == User.Identity.GetUserName()).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public ActionResult CrearEvento()
@@ -47,25 +70,14 @@ namespace Login.Controllers
                 return View();
             }
         }
-        public ActionResult DetalleEvento(int Id)
+
+        public ActionResult EditarEvento()
         {
-            using (EventoContext db = new EventoContext())
-            {
-               
-                return View(db.Lugar.Find(Id));
-            }
-        }
-        public ActionResult Editar(int Id)
-        {
-            using (var db = new EventoContext())
-            {
-                return View(db.Lugar.Find(Id));
-            }
-            
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Editar(Lugar a)
+        public ActionResult EditarEvento(Lugar a)
         {
             try
             {
@@ -84,17 +96,7 @@ namespace Login.Controllers
                 return View();
             }
         }
-        public ActionResult Eliminar(int Id)
-        {
-            using (var db = new EventoContext())
-            {
-                db.Lugar.Remove(db.Lugar.Find(Id));
-               // db.Lugar.remove(db.Tabla.Find(Id));
-                db.SaveChanges();
-                return RedirectToAction("Evento");
-            }
-
-        }
+       
     }
 
 }
