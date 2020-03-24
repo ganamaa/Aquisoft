@@ -132,28 +132,28 @@
 <div>
     @Html.ActionLink("Regresar", "TusEventos")
 </div>
+
+<script>
+    $('#ModalMapPreview').locationpicker({
+        radius: 0,
+        location: {
+            latitude: $('#Latitud').val(),    //POSICION INICIAL
+            longitude: $('#Longitud').val()
+        },
+        enableAutocomplete: true,   //AUTOCOMPLETE EN EL BUSCADOR
+        inputBinding: {
+            latitudeInput: $('#Latitud'),
+            longitudeInput: $('#Longitud'),
+            locationNameInput: $('#Ubicacion')
+        },
+
+    });
+
+
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 @section scripts{
-    <script>
-        $('#ModalMapPreview').locationpicker({
-            radius: 0,
-            location: {
-                latitude: $('#Latitud').val(),    //POSICION INICIAL
-                longitude: $('#Longitud').val()
-            },
-            enableAutocomplete: true,   //AUTOCOMPLETE EN EL BUSCADOR
-            inputBinding: {
-                latitudeInput: $('#Latitud'),
-                longitudeInput: $('#Longitud'),
-                locationNameInput: $('#Ubicacion')
-            },
-
-        });
-
-
-    </script>
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 }

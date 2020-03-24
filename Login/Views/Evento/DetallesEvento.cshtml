@@ -94,29 +94,32 @@
     </dl>
 
 </div>
-    <div class="form-horizontal">
-        <div class="form-group">
-            <div id="ModalMapPreview" style="width: 100%; height: 300px;"></div>
-        </div>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div id="ModalMapPreview" style="width: 100%; height: 300px;"></div>
     </div>
+</div>
+<p>
+    @Html.ActionLink("Editar", "EditarEvento", new { id = Model.ID }) |
+    @Html.ActionLink("Regresar", "TusEventos")
+</p>
+<script>
+    $('#ModalMapPreview').locationpicker({
+        radius: 0,
+        location: {
+            latitude:@Model.Latitud ,    //POSICION INICIAL
+            longitude: @Model.Longitud,
+        },
 
-    <p>
-        @Html.ActionLink("Editar", "EditarEvento", new { id = Model.ID }) |
-        @Html.ActionLink("Regresar", "TusEventos")
-    </p>
+    });
+</script>
 
-@section scripts{
-    <script>
-        $('#ModalMapPreview').locationpicker({
-            radius: 0,
-            location: {
-                latitude: $('#Latitud').val(),    //POSICION INICIAL
-                longitude: $('#Longitud').val()
-            },
 
-        });
-    </script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-    
+
+
+
 
 
