@@ -38,7 +38,7 @@ namespace Login.Controllers
                 {
 
                     
-                    List<Lugar> lista = db.Lugar.OrderByDescending(a => a.Asistentes).Take(10).ToList();
+                    List<Lugar> lista = db.Lugar.OrderByDescending(a => a.Asistentes).Take(5).ToList();
                     return View(lista);
                 }
             }
