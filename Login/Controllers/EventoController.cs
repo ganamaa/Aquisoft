@@ -23,9 +23,10 @@ namespace Login.Controllers
                     return View(db.Lugar.ToList());
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
             }
         }
         public ActionResult TusEventos()
@@ -153,6 +154,24 @@ namespace Login.Controllers
             {
                 ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
                 return View();
+            }
+        }
+        public ActionResult Asistir(int id)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    Lugar evento = db.Lugar.Find(id);
+                    evento.Asistentes = evento.Asistentes + 1;                       
+                    db.SaveChanges();
+                    return RedirectToAction("Evento");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
+                return View("Evento");
             }
         }
     }
