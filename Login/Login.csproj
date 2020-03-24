@@ -313,6 +313,7 @@
     <Content Include="Views\Evento\TusEventos.cshtml" />
     <Content Include="Views\Evento\EditarEvento.cshtml" />
     <Content Include="Views\Evento\DetallesEvento.cshtml" />
+    <Content Include="Views\Evento\TopEventos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

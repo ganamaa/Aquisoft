@@ -100,8 +100,7 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Editar", "EditarEvento", new { id = Model.ID }) |
-    @Html.ActionLink("Regresar", "TusEventos")
+    <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Regresar", "Evento", "Evento")</button>
 </p>
 <script>
     $('#ModalMapPreview').locationpicker({

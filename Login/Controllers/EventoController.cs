@@ -29,6 +29,25 @@ namespace Login.Controllers
                 return View();
             }
         }
+
+        public ActionResult TopEventos()
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    
+                    List<Lugar> lista = db.Lugar.OrderByDescending(a => a.Asistentes).Take(10).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
         public ActionResult TusEventos()
         {
             try
