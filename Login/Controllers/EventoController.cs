@@ -42,7 +42,7 @@ namespace Login.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "Error al igresar" + ex.Message);
-                return View("crearEvento");
+                return View();
             }
         }
 
@@ -59,10 +59,11 @@ namespace Login.Controllers
             {
                 using (var db = new EventoContext())
                 {
-                    
+                    a.Asistentes = 0;
+                    a.Usuario = User.Identity.GetUserName();
                     db.Lugar.Add(a);
                     db.SaveChanges();
-                    return RedirectToAction("Evento");
+                    return RedirectToAction("TusEventos");
                 }
 
             }
@@ -73,28 +74,48 @@ namespace Login.Controllers
             }
         }
 
-        public ActionResult EditarEvento()
+        public ActionResult EditarEvento(int id)
         {
-            return View();
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    Lugar evento = db.Lugar.Find(id);
+                    return View(evento);
+                }
+            }catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
+                return View();
+            }
+            
         }
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditarEvento(Lugar a)
         {
             try
             {
                 using (var db = new EventoContext())
                 {
-
-                    db.Entry(db.Lugar.Find(a.ID)).State = System.Data.Entity.EntityState.Modified;
+                    Lugar evento = db.Lugar.Find(a.ID);
+                    evento.Nombre = a.Nombre;
+                    evento.Ubicacion = a.Ubicacion;
+                    evento.Latitud = a.Latitud;
+                    evento.Longitud = a.Longitud;
+                    evento.Categoria = a.Categoria;
+                    evento.FechaInicio = a.FechaInicio;
+                    evento.FechaFin = a.FechaFin;
+                    evento.Capacidad = a.Capacidad;
+                    evento.Descripcion = a.Descripcion;
                     db.SaveChanges();
-                    return RedirectToAction("Evento");
+                    return RedirectToAction("TusEventos");
                 }
 
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("Error al agregar el evento", ex);
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
                 return View();
             }
         }

@@ -17,13 +17,14 @@ namespace Login.Datos
         public string Longitud { get; set; }
         public string Usuario { get; set; }
         [Required]
-        [Display]
         public string Categoria { get; set; }
         [DataType(DataType.Date), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [Display (Name = "Fecha de Inicio")]
         public System.DateTime FechaInicio { get; set; }
         [DataType(DataType.Date), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha de Fin")]
         public Nullable<System.DateTime> FechaFin { get; set; }
         [Required]
         [Display]
