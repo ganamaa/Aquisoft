@@ -16,15 +16,6 @@
             @Html.DisplayNameFor(model => model.Ubicacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Latitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Categoria)
         </th>
         <th>
@@ -39,53 +30,48 @@
         <th>
             @Html.DisplayNameFor(model => model.Asistentes)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asistentes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "EditarEvento", new { id=item.ID }) |
-            @Html.ActionLink("Detalle", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asistentes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditarEvento", new { id = item.ID }) |
+                @Html.ActionLink("Detalle", "DetallesEvento", new { id = item.ID }) |
+                @Html.ActionLink("Eliminar", "EliminarEvento", new { id = item.ID }, new { @class = "eEliminar" })
+            </td>
+        </tr>
+    }
 </table>
+
+@section scripts{
+    <script>
+        $(".eEliminar").click(function (event) {
+            if (!confirm('Estás seguro de eliminar?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}

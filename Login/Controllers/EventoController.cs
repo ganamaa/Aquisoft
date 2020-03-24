@@ -17,16 +17,16 @@ namespace Login.Controllers
         {
             try
             {
-                using (var  db = new EventoContext())
+                using (var db = new EventoContext())
                 {
 
-                return View(db.Lugar.ToList());
+                    return View(db.Lugar.ToList());
                 }
             }
             catch (Exception)
             {
                 throw;
-            }     
+            }
         }
         public ActionResult TusEventos()
         {
@@ -48,9 +48,9 @@ namespace Login.Controllers
 
         public ActionResult CrearEvento()
         {
-                return View();
+            return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CrearEvento(Lugar a)
@@ -69,7 +69,7 @@ namespace Login.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("","Error al agregar el evento"+ex.Message);
+                ModelState.AddModelError("", "Error al agregar el evento" + ex.Message);
                 return View();
             }
         }
@@ -83,12 +83,13 @@ namespace Login.Controllers
                     Lugar evento = db.Lugar.Find(id);
                     return View(evento);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
                 return View();
             }
-            
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -119,7 +120,41 @@ namespace Login.Controllers
                 return View();
             }
         }
-       
+
+        public ActionResult DetallesEvento(int id)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    Lugar evento = db.Lugar.Find(id);
+                    return View(evento);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
+                return View();
+            }
+        }
+        public ActionResult EliminarEvento(int id)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    Lugar evento = db.Lugar.Find(id);
+                    db.Lugar.Remove(evento);
+                    db.SaveChanges();
+                    return RedirectToAction("TusEventos");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
+                return View();
+            }
+        }
     }
 
 }

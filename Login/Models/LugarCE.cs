@@ -19,11 +19,11 @@ namespace Login.Datos
         [Required]
         public string Categoria { get; set; }
         [DataType(DataType.Date), Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display (Name = "Fecha de Inicio")]
         public System.DateTime FechaInicio { get; set; }
         [DataType(DataType.Date), Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha de Fin")]
         public Nullable<System.DateTime> FechaFin { get; set; }
         [Required]

@@ -1,0 +1,122 @@
+﻿@model Login.Datos.Lugar
+
+@{
+    ViewBag.Title = "DetallesEvento";
+}
+
+<h2>Detalles del Evento</h2>
+
+<!--Bootstrap y JQuery-->
+<!--script src= ttps://code.jquery.com/jquery-1.10.2.min.js ></!--script-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" />
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--fin-->
+
+<script src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyAz9MQj-ppdXPbHdzO8KKxIkygXq3r3sOM' type="text/javascript"></script>
+<script src="~/Scripts/locationpicker.jquery.js"></script>
+
+<div>
+    <h4>EVENTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ubicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ubicacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asistentes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asistentes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+
+</div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div id="ModalMapPreview" style="width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+
+    <p>
+        @Html.ActionLink("Editar", "EditarEvento", new { id = Model.ID }) |
+        @Html.ActionLink("Regresar", "TusEventos")
+    </p>
+
+@section scripts{
+    <script>
+        $('#ModalMapPreview').locationpicker({
+            radius: 0,
+            location: {
+                latitude: $('#Latitud').val(),    //POSICION INICIAL
+                longitude: $('#Longitud').val()
+            },
+
+        });
+    </script>
+}
+    
+
+
