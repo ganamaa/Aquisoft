@@ -30,14 +30,14 @@ namespace Login.Controllers
             }
         }
         
-        public ActionResult EventosAlrededor(double[] coord, int distancia)
+        public ActionResult EventosAlrededor(String Latitud, String Longitud)
         {
             
             try
             {
                 using (var db = new EventoContext())
                 {
-                    List<Lugar> lista=db.Lugar.Where(a=> (Math.Sqrt((Math.Pow ( Double.Parse(a.Latitud) - coord[0],2)) +(Math.Pow ( Double.Parse(a.Longitud) - coord[1],2)))<distancia)).ToList();
+                    List<Lugar> lista = db.Lugar.Where(a=>(Math.Sqrt(Math.Pow(Double.Parse(a.Latitud) - Double.Parse(Latitud), 2)-Math.Pow(Double.Parse(a.Longitud) - Double.Parse(Longitud), 2)))<100).ToList();
                     return View(lista);
                 }
             }

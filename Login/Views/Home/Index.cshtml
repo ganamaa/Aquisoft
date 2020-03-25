@@ -4,6 +4,8 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
+<p id="lat"></p>
+<p id="long"></p>
 
 <div class="jumbotron">
     <h1>Un Lugar</h1>
@@ -14,8 +16,8 @@
     <div class="col-md-4">
         <h3>¿Aburrido!?¿Quieres asistir una fiesta y no sabes donde ir? </h3>
         <p>Con Un Lugar puedes encotrar el lugar ideal para tus eventos.Echale un ojito a los eventos.Esperemos que te gusten</p>
-        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit" >@Html.ActionLink("lista de eventos", "Evento", "Evento")</button>
-      
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("lista de eventos", "Evento", "Evento")</button>
+
     </div>
     <div class="col-md-4">
         <h3>Mantente actualizado! </h3>
@@ -35,7 +37,41 @@
         <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Social", "EventosGustos", "Evento", new { Categoria = "Social" }, null)</button>
         <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Otro", "EventosGustos", "Evento", new { Categoria = "Otro" }, null)</button>
     </div>
+
+    <div class="col-md-4">
+        <h3>¿Buscas algo cerca?</h3>
+        <h5>¡ENCUENTRALA AQUI!</h5>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("CERCA", "EventosAlrededor", "Evento", new {Latitud ="qetLatitud()", Longitud="getLongitud()" }, null)</button>
+
+    </div>
+
 </div>
 
 <!-- Compiled and minified JavaScript -->
+<script>
+   
+    function getLatitud() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        return position.coords.latitude;
+    }
+
+    function getLongitud() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        return position.coords.longitude;
+     }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
