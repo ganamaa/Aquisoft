@@ -1,23 +1,41 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Import Google Icon Font-->
 
 <div class="jumbotron">
     <h1>Un Lugar</h1>
-    <p>Un Lugar es la aplicacion web que te permite encontrar el lugar perfercto para tus eventos, ya sean fiestas, lugares de estudio, cafeterias, etc. </p>
+    <p>Un Lugar es la aplicacion web que te permite encontrar y compartir eventos de interes.</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h3>¿Quieres realizar una fiesta y no sabes donde ir? </h3>
-        <p>con Un Lugar puedes encotrar el lugar ideal para realizar tus eventos.</p>
+        <h3>¿Aburrido!?¿Quieres asistir una fiesta y no sabes donde ir? </h3>
+        <p>Con Un Lugar puedes encotrar el lugar ideal para tus eventos.Echale un ojito a los eventos.Esperemos que te gusten</p>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit" >@Html.ActionLink("lista de eventos", "Evento", "Evento")</button>
+      
     </div>
     <div class="col-md-4">
         <h3>Mantente actualizado! </h3>
-        <p>mira los eventos con mas destacados, los mas influyentes, o de los que todos estan hablando.</p>
+        <p>Mira los eventos con mas destacados, los mas influyentes, o de los que todos estan hablando.</p>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "TopEventos", "Evento")</button>
     </div>
     <div class="col-md-4">
-        <h3>¿Vas a asistrir a un concierto, pero no quieres ir solo?</h3>
-        <p>enviale una invitacion a tus amigos o comparte lo en tus redes sociales.</p>
+        <h3>¿Buscas alguna categoria en particular?</h3>
+        <h5>¡ENCUENTRALA AQUI!</h5>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Academico", "EventosGustos", "Evento", new { Categoria = "Academico" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Cultural", "EventosGustos", "Evento", new { Categoria = "Cultural" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Deportivo", "EventosGustos", "Evento", new { Categoria = "Deportivo" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Empresarial", "EventosGustos", "Evento", new { Categoria = "Empresarial" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Politico", "EventosGustos", "Evento", new { Categoria = "Politicol" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Recreativo", "EventosGustos", "Evento", new { Categoria = "Recreativo" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Religioso", "EventosGustos", "Evento", new { Categoria = "Religioso" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Social", "EventosGustos", "Evento", new { Categoria = "Social" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Otro", "EventosGustos", "Evento", new { Categoria = "Otro" }, null)</button>
     </div>
 </div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

@@ -23,9 +23,63 @@ namespace Login.Controllers
                     return View(db.Lugar.ToList());
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
+        
+        public ActionResult EventoCerca(double[] coord)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    List<Lugar> lista;
+                    return View(db.Lugar.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
+
+        public ActionResult EventosGustos(string categoria)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    List<Lugar> lista = db.Lugar.Where(a => a.Categoria == categoria).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
+
+        public ActionResult TopEventos()
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    List<Lugar> lista = db.Lugar.OrderByDescending(a => a.Asistentes).Take(5).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
             }
         }
         public ActionResult TusEventos()
@@ -153,6 +207,31 @@ namespace Login.Controllers
             {
                 ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
                 return View();
+            }
+        }
+        public ActionResult Asistir(int id)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    Lugar evento = db.Lugar.Find(id);
+                    if (evento.Capacidad >= evento.Asistentes)
+                    {
+                         evento.Asistentes = evento.Asistentes + 1;
+                         db.SaveChanges();
+                    }
+                    else
+                    {
+                        ViewBag.Nota = "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ";
+                    }
+                    return RedirectToAction("Evento");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al encontrar al evento" + ex.Message);
+                return View("Evento");
             }
         }
     }

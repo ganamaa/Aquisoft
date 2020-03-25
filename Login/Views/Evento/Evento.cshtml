@@ -12,78 +12,32 @@
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ubicacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaInicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaFin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capacidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Asistentes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asistentes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>           
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "DetallesEvento", new { id = item.ID }) |
+                @Html.ActionLink("Asistir", "Asistir", new { id = item.ID }, new { @class = "eAsistir" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@section scripts{
+    <script>
+        $(".eAsistir").click(function (event) {
+            if (!confirm('Estás seguro de que deasea asistir?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+    }
+
+
