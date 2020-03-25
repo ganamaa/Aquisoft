@@ -29,22 +29,7 @@ namespace Login.Controllers
                 return View();
             }
         }
-        public ActionResult EventosAlrededor()
-        {
-            try
-            {
-                using (var db = new EventoContext())
-                {
 
-                    return View(db.Lugar.ToList());
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Error al igresar" + ex.Message);
-                return View();
-            }
-        }
         public ActionResult EventosGustos(string categoria)
         {
             try
@@ -214,8 +199,15 @@ namespace Login.Controllers
                 using (var db = new EventoContext())
                 {
                     Lugar evento = db.Lugar.Find(id);
-                    evento.Asistentes = evento.Asistentes + 1;                       
-                    db.SaveChanges();
+                    if (evento.Capacidad >= evento.Asistentes)
+                    {
+                         evento.Asistentes = evento.Asistentes + 1;
+                         db.SaveChanges();
+                    }
+                    else
+                    {
+                        ViewBag.Nota = "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ";
+                    }
                     return RedirectToAction("Evento");
                 }
             }

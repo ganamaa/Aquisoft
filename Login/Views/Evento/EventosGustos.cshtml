@@ -62,8 +62,9 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Detalle", "DetallesEvento", new { id=item.ID }) 
-        </td>
+            <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Detalle", "DetallesEvento", new { id = item.ID })</button>
+            <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Regresar", "Index", "Home")</button>
+</td>
     </tr>
 }
 

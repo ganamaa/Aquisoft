@@ -23,19 +23,17 @@
         <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "TopEventos", "Evento")</button>
     </div>
     <div class="col-md-4">
-        <h3>¿Buscas alguna categoria en particulas? ¡ENCUENTRALA AQUI!</h3>
-        <select class="form-control" id="Categoria" name="Categoria">
-            <option value="Academico">Académico</option>
-            <option value="Cultural">Cultural</option>
-            <option value="Deportivo">Deportivo</option>
-            <option value="Empresarial">Empresarial</option>
-            <option value="Politico">Político</option>
-            <option value="Recreativo">Recreativo</option>
-            <option value="Religioso">Religioso</option>
-            <option value="Social">Social</option>
-            <option value="Otro">Otro</option>
-        </select>
-        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "EventosGustos", "Evento", new { id="Academico"})</button>
+        <h3>¿Buscas alguna categoria en particular?</h3>
+        <h5>¡ENCUENTRALA AQUI!</h5>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Academico", "EventosGustos", "Evento", new { Categoria = "Academico" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Cultural", "EventosGustos", "Evento", new { Categoria = "Cultural" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Deportivo", "EventosGustos", "Evento", new { Categoria = "Deportivo" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Empresarial", "EventosGustos", "Evento", new { Categoria = "Empresarial" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Politico", "EventosGustos", "Evento", new { Categoria = "Politicol" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Recreativo", "EventosGustos", "Evento", new { Categoria = "Recreativo" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Religioso", "EventosGustos", "Evento", new { Categoria = "Religioso" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Social", "EventosGustos", "Evento", new { Categoria = "Social" }, null)</button>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Otro", "EventosGustos", "Evento", new { Categoria = "Otro" }, null)</button>
     </div>
 </div>
 
