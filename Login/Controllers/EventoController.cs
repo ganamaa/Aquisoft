@@ -45,6 +45,23 @@ namespace Login.Controllers
                 return View();
             }
         }
+        public ActionResult EventosGustos(string categoria)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    List<Lugar> lista = db.Lugar.Where(a => a.Categoria == categoria).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
 
         public ActionResult TopEventos()
         {
@@ -53,7 +70,6 @@ namespace Login.Controllers
                 using (var db = new EventoContext())
                 {
 
-                    
                     List<Lugar> lista = db.Lugar.OrderByDescending(a => a.Asistentes).Take(5).ToList();
                     return View(lista);
                 }

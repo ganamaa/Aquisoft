@@ -23,8 +23,19 @@
         <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "TopEventos", "Evento")</button>
     </div>
     <div class="col-md-4">
-        <h3>¿Vas a asistrir a un concierto, pero no quieres ir solo?</h3>
-        <p>enviale una invitacion a tus amigos o comparte lo en tus redes sociales.</p>
+        <h3>¿Buscas alguna categoria en particulas? ¡ENCUENTRALA AQUI!</h3>
+        <select class="form-control" id="Categoria" name="Categoria">
+            <option value="Academico">Académico</option>
+            <option value="Cultural">Cultural</option>
+            <option value="Deportivo">Deportivo</option>
+            <option value="Empresarial">Empresarial</option>
+            <option value="Politico">Político</option>
+            <option value="Recreativo">Recreativo</option>
+            <option value="Religioso">Religioso</option>
+            <option value="Social">Social</option>
+            <option value="Otro">Otro</option>
+        </select>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "EventosGustos", "Evento", new { id="Academico"})</button>
     </div>
 </div>
 
