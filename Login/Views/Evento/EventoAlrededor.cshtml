@@ -1,4 +1,4 @@
-﻿@model Login.Datos.Lugar
+﻿@model IEnumerable<Login.Datos.Lugar>
 
 @{
     ViewBag.Title = "EventoAlrededor";
@@ -25,6 +25,11 @@
 <p id="lat"></p>
 <p id="long"></p>
 
+@foreach (var item in Model)
+{
+    if ( this.CalcularCerca() == true  )
+}
+
 <script>
     var lat = document.getElementById("lat");
     var long = document.getElementById("long");
@@ -32,7 +37,10 @@
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
+            CalcularCerca();
+        }
+
+        else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
     }
@@ -40,6 +48,10 @@
     function showPosition(position) {
         lat.innerHTML = position.coords.latitude;
         long.innerHTML = position.coords.longitude;
+    }
+
+    function CalcularCerca() {
+        alert("ejecutando")
     }
 </script>
 
