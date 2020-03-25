@@ -29,6 +29,23 @@ namespace Login.Controllers
                 return View();
             }
         }
+        
+        public ActionResult EventoCerca(double[] coord)
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+                    List<Lugar> lista;
+                    return View(db.Lugar.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
 
         public ActionResult EventosGustos(string categoria)
         {
