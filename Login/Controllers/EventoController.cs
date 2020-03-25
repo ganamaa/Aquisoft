@@ -29,6 +29,22 @@ namespace Login.Controllers
                 return View();
             }
         }
+        public ActionResult EventosAlrededor()
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
+
+                    return View(db.Lugar.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
 
         public ActionResult TopEventos()
         {

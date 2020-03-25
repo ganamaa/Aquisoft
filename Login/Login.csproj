@@ -268,6 +268,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.gmaps.css" />
+    <Content Include="Scripts\jquery.gmaps.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -314,6 +316,7 @@
     <Content Include="Views\Evento\EditarEvento.cshtml" />
     <Content Include="Views\Evento\DetallesEvento.cshtml" />
     <Content Include="Views\Evento\TopEventos.cshtml" />
+    <Content Include="Views\Evento\EventosAlrededor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
