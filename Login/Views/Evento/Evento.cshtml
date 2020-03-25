@@ -13,6 +13,9 @@
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Capacidad)
         </th>
         <th>
@@ -28,6 +31,9 @@
         @Html.DisplayFor(modelItem => item.Nombre)
     </td>
     <td>
+        @Html.DisplayFor(modelItem => item.Usuario)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.Capacidad)
     </td>
     <td>
@@ -36,7 +42,7 @@
     <td>
         @Html.ActionLink("Detalles", "DetallesEvento", new { id = item.ID }) |
         @{
-                if (item.Capacidad >item.Asistentes)
+            if (item.Capacidad > item.Asistentes)
             {
                 @Html.ActionLink("Asistir", "Asistir", new { id = item.ID }, new { @class = "eAsistir" })
             }
