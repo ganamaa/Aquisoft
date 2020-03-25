@@ -18,15 +18,70 @@
 <script src="~/Scripts/locationpicker.jquery.js"></script>
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Generar Eventos Cerca</button>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ubicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asistentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asistentes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Detalle", "DetallesEvento", new { id = item.ID })</button>
+                <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Regresar", "Index", "Home")</button>
+            </td>
+        </tr>
+    }
 
-<p id="lat"></p>
-<p id="long"></p>
-
-<div class="form-group">
-    <div id="ModalMapPreview" style="width: 100%; height: 300px;"></div>
-</div>
+</table>
 
 <script>
     var lat = document.getElementById("lat");
