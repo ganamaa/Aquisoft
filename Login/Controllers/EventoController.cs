@@ -217,14 +217,14 @@ namespace Login.Controllers
                 using (var db = new EventoContext())
                 {
                     Lugar evento = db.Lugar.Find(id);
-                    if (evento.Capacidad >= evento.Asistentes)
+                    if (evento.Capacidad > evento.Asistentes)
                     {
                          evento.Asistentes = evento.Asistentes + 1;
                          db.SaveChanges();
                     }
                     else
                     {
-                        ViewBag.Nota = "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ";
+                        evento.Nota = "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ";
                     }
                     return RedirectToAction("Evento");
                 }

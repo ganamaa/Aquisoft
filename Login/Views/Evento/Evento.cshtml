@@ -15,18 +15,28 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.ActionLink("Detalles", "DetallesEvento", new { id = item.ID }) |
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+
+    <td>
+        @Html.ActionLink("Detalles", "DetallesEvento", new { id = item.ID }) |
+        @{
+            if (item.Nota != "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ")
+            {
                 @Html.ActionLink("Asistir", "Asistir", new { id = item.ID }, new { @class = "eAsistir" })
-            </td>
-        </tr>
-    }
+            }
+            else
+            {
+                <dialog>item.Nota</dialog>
+            }
+        }
+    </td>
+</tr>
+ }
 
 </table>
 
