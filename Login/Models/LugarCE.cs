@@ -40,6 +40,5 @@ namespace Login.Datos
     public partial class Lugar
     {   
 
-        public string Nota { get; set; }
     }
 }

@@ -318,7 +318,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Evento\CrearEvento.cshtml" />
-    <Content Include="Views\Evento\EventoAlrededor.cshtml" />
     <Content Include="Views\Evento\Evento.cshtml" />
     <Content Include="Views\Evento\TusEventos.cshtml" />
     <Content Include="Views\Evento\EditarEvento.cshtml" />
@@ -326,6 +325,7 @@
     <Content Include="Views\Evento\TopEventos.cshtml" />
     <Content Include="Views\Evento\EventosAlrededor.cshtml" />
     <Content Include="Views\Evento\EventosGustos.cshtml" />
+    <Content Include="Views\Evento\ProximosEventos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

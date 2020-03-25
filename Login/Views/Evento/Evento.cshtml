@@ -12,6 +12,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asistentes)
+        </th>
         <th></th>
     </tr>
 
@@ -21,17 +27,22 @@
     <td>
         @Html.DisplayFor(modelItem => item.Nombre)
     </td>
-
+    <td>
+        @Html.DisplayFor(modelItem => item.Capacidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Asistentes)
+    </td>
     <td>
         @Html.ActionLink("Detalles", "DetallesEvento", new { id = item.ID }) |
         @{
-            if (item.Nota != "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ")
+                if (item.Capacidad >item.Asistentes)
             {
                 @Html.ActionLink("Asistir", "Asistir", new { id = item.ID }, new { @class = "eAsistir" })
             }
             else
             {
-                <dialog>item.Nota</dialog>
+                <b>NO PUEDE ASISTIR-CAPACIDAD MAXIMA </b>
             }
         }
     </td>

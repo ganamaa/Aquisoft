@@ -4,8 +4,6 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
-<p id="lat"></p>
-<p id="long"></p>
 
 <div class="jumbotron">
     <h1>Un Lugar</h1>
@@ -21,8 +19,8 @@
     </div>
     <div class="col-md-4">
         <h3>Mantente actualizado! </h3>
-        <p>Mira los eventos con mas destacados, los mas influyentes, o de los que todos estan hablando.</p>
-        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Top Eventos", "TopEventos", "Evento")</button>
+        <p>Mira los eventos con mas recientes.</p>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("Proximos Eventos", "ProximosEventos", "Evento")</button>
     </div>
     <div class="col-md-4">
         <h3>¿Buscas alguna categoria en particular?</h3>
@@ -41,37 +39,53 @@
     <div class="col-md-4">
         <h3>¿Buscas algo cerca?</h3>
         <h5>¡ENCUENTRALA AQUI!</h5>
-        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("CERCA", "EventosAlrededor", "Evento", new {Latitud ="qetLatitud()", Longitud="getLongitud()" }, null)</button>
+        <p id="geolocation-test"></p>
+        <script>
+            (function(){
+	            var content = document.getElementById("geolocation-test");
+
+	            if (navigator.geolocation)
+	            {
+		            navigator.geolocation.getCurrentPosition(function(objPosition)
+                    {
+                        var lon = objPosition.coords.longitude;
+                        var lat = objPosition.coords.latitude;
+
+                        content.innerHTML = "<p><strong>Tu latitud:</strong> " + lat + "</p><p><strong>Tu longitud:</strong> " + lon + "</p>";
+                        
+
+                    }, function (objPositionError)
+                        {
+			    switch (objPositionError.code)
+			    {
+				    case objPositionError.PERMISSION_DENIED:
+					    content.innerHTML = "No se ha permitido el acceso a la posición del usuario.";
+				    break;
+				    case objPositionError.POSITION_UNAVAILABLE:
+					    content.innerHTML = "No se ha podido acceder a la información de su posición.";
+				    break;
+				    case objPositionError.TIMEOUT:
+					    content.innerHTML = "El servicio ha tardado demasiado tiempo en responder.";
+				    break;
+				    default:
+					    content.innerHTML = "Error desconocido.";
+			    }
+		    },  {
+			        maximumAge: 75000,
+			        timeout: 15000
+		    });
+	            }
+	            else
+	        {
+	            content.innerHTML = "Su navegador no soporta la API de geolocalización.";
+	        }
+            })();
+        </script>
+        <button class="btn waves-effect waves-blue purple lighten-4 " type="submit">@Html.ActionLink("CERCA", "EventosAlrededor", "Evento", new { Latitud = "4.628104500000001", Longitud = "-74.0654527" }, null)</button>
+        
 
     </div>
 
 </div>
 
-<!-- Compiled and minified JavaScript -->
-<script>
-   
-    function getLatitud() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-
-    function showPosition(position) {
-        return position.coords.latitude;
-    }
-
-    function getLongitud() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-
-    function showPosition(position) {
-        return position.coords.longitude;
-     }
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

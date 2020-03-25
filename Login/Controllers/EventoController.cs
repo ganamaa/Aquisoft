@@ -65,7 +65,23 @@ namespace Login.Controllers
                 return View();
             }
         }
+        public ActionResult ProximosEventos()
+        {
+            try
+            {
+                using (var db = new EventoContext())
+                {
 
+                    List<Lugar> lista = db.Lugar.Where(a => a.FechaInicio >= DateTime.Today).ToList();
+                    return View(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                return View();
+            }
+        }
         public ActionResult TopEventos()
         {
             try
@@ -222,10 +238,7 @@ namespace Login.Controllers
                          evento.Asistentes = evento.Asistentes + 1;
                          db.SaveChanges();
                     }
-                    else
-                    {
-                        evento.Nota = "NO PUEDE ASISTIR-CAPACIDAD MAXIMA ";
-                    }
+
                     return RedirectToAction("Evento");
                 }
             }
