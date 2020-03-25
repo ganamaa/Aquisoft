@@ -30,19 +30,20 @@ namespace Login.Controllers
             }
         }
         
-        public ActionResult EventoCerca(double[] coord)
+        public ActionResult EventosAlrededor(double[] coord, int distancia)
         {
+            
             try
             {
                 using (var db = new EventoContext())
                 {
-                    List<Lugar> lista;
-                    return View(db.Lugar.ToList());
+                    List<Lugar> lista=db.Lugar.Where(a=> (Math.Sqrt((Math.Pow ( Double.Parse(a.Latitud) - coord[0],2)) +(Math.Pow ( Double.Parse(a.Longitud) - coord[1],2)))<distancia)).ToList();
+                    return View(lista);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                ModelState.AddModelError("", "Error al igresar" + ex.Message);
+                ModelState.AddModelError("", "Error al consultar" + ex.Message);
                 return View();
             }
         }
